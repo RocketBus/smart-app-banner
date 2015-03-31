@@ -94,6 +94,10 @@
             appMeta: 'apple-itunes-app',
             iconRels: ['apple-touch-icon-precomposed', 'apple-touch-icon'],
             getStoreLink: function() {
+                if (this.options.iosStoreUrl) {
+                    return this.options.iosStoreUrl;
+                }
+
                 return 'https://itunes.apple.com/' + this.options.appStoreLanguage + '/app/id' + this.appId;
             }
         },
@@ -101,6 +105,10 @@
             appMeta: 'google-play-app',
             iconRels: ['android-touch-icon', 'apple-touch-icon-precomposed', 'apple-touch-icon'],
             getStoreLink: function() {
+                if (this.options.androidStoreUrl) {
+                    return this.options.androidStoreUrl;
+                }
+
                 return 'http://play.google.com/store/apps/details?id=' + this.appId;
             }
         }
